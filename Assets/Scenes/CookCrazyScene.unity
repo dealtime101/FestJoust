@@ -6006,6 +6006,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881985175}
+  - component: {fileID: 881985176}
   m_Layer: 5
   m_Name: TutorialUI
   m_TagString: Untagged
@@ -6045,6 +6046,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &881985176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881985174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffe3e29d87f5704b97dbc7b0a56ad50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyMoveUpText: {fileID: 469717373}
+  keyMoveDownText: {fileID: 1118431400}
+  keyMoveLeftText: {fileID: 1986797543}
+  keyMoveRightText: {fileID: 1693630390}
+  keyMoveInteractText: {fileID: 2011598902}
+  keyMoveInteractAlternateText: {fileID: 1555811520}
+  keyMovePauseText: {fileID: 1241764133}
+  keyGamePadInteractText: {fileID: 1466383471}
+  keyGamePadInteractAlternateText: {fileID: 282428658}
+  keyGamePadPauseText: {fileID: 1575934093}
 --- !u!1001 &887918084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12131,6 +12154,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1838538870}
   - component: {fileID: 1838538871}
+  - component: {fileID: 1838538873}
+  - component: {fileID: 1838538872}
   m_Layer: 5
   m_Name: GameStartCountdownUI
   m_TagString: Untagged
@@ -12148,7 +12173,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 407552568}
   m_Father: {fileID: 2142858385}
@@ -12171,6 +12196,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 407552569}
+--- !u!225 &1838538872
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838538869}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1838538873
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838538869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 12f6011286ddd384888dcef864c60e60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1842918760
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class GameStartCountDownUI : MonoBehaviour
 {
+    private const string NUMBER_POPUP = "NumberPopup";
     [SerializeField] private TextMeshProUGUI countdownText;
 
+    private Animator animator;
+    private int previousCountdownNumber;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
         CookCrazyGameManager.Instance.OnStateChanged += CookCrazyGameManager_OnStateChanged;
@@ -27,7 +35,15 @@ public class GameStartCountDownUI : MonoBehaviour
 
     private void Update()
     {
-        countdownText.text = Mathf.Ceil(CookCrazyGameManager.Instance.GetCountdowntoStartTimer()).ToString();
+        int countdownNumber = Mathf.CeilToInt(CookCrazyGameManager.Instance.GetCountdowntoStartTimer());
+        countdownText.text = countdownNumber.ToString();
+
+        if (previousCountdownNumber != countdownNumber)
+        {
+            previousCountdownNumber = countdownNumber;
+            animator.SetTrigger(NUMBER_POPUP);
+            SoundManager.Instance.PlayCountdownSound();
+        }
     }
 
     private void Show()

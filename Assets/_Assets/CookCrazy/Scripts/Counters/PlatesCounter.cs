@@ -24,7 +24,7 @@ public class PlatesCounter : BaseCounter
         {
             spawnPlateTimer = 0f;
 
-            if (platesSpawnedAmount < platesSpawnedAmountMax)
+            if (CookCrazyGameManager.Instance.IsGamePlaying() && platesSpawnedAmount < platesSpawnedAmountMax)
             {
                 platesSpawnedAmount++;
 
