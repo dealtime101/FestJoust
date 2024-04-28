@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -7,14 +8,15 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
 
     [SerializeField] private AudioClipSO audioClipSO;
+    [SerializeField] private Slider soundSlider;
 
-    private float volume = 1.0f;
+    private float volume = .5f;
 
     private void Awake()
     {
         Instance = this;
 
-        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, .5f);
+        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME);
 
     }
     private void Start()
@@ -25,6 +27,12 @@ public class SoundManager : MonoBehaviour
         Player.Instance.OnPickedSomething += Player_OnPickedSomething;
         BaseCounter.OnAnyObjectPlaced += BaseCounter_OnAnyObjectPlaced;
         TrashCounter.OnAnyObjectTrashed += TrashCounter_OnAnyObjectTrashed;
+    }
+
+    public void Update()
+    {
+        volume = soundSlider.GetComponent<Slider>().value;
+        soundSlider.GetComponent<Slider>().value = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME);
     }
 
     private void TrashCounter_OnAnyObjectTrashed(object sender, System.EventArgs e)
@@ -88,12 +96,11 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeVolume()
     {
-        volume += .1f;
-        if (volume > 1f)
-        {
-            volume = 0f;
-        }
+        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME);
+    }
 
+    public void SoundSlider()
+    {
         PlayerPrefs.SetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, volume);
         PlayerPrefs.Save();
     }

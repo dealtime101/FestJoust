@@ -10,6 +10,7 @@ public class OptionsUI : MonoBehaviour
 {
 
     public static OptionsUI Instance { get; private set; }
+
     [SerializeField] private Button soundEffectsButton;
     [SerializeField] private Button musicButton;
     [SerializeField] private Button closeButton;
@@ -37,21 +38,12 @@ public class OptionsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gamepadPauseText;
     [SerializeField] private Transform pressToRebindKeyTransform;
 
+
     private Action onCloseButtonAction;
 
     private void Awake()
     {
         Instance = this;
-        soundEffectsButton.onClick.AddListener(() =>
-        {
-            SoundManager.Instance.ChangeVolume();
-            UpdateVisual();
-        });
-        musicButton.onClick.AddListener(() =>
-        {
-            MusicManager.Instance.ChangeVolume();
-            UpdateVisual();
-        });
         closeButton.onClick.AddListener(() =>
         {
             Hide();
@@ -108,6 +100,11 @@ public class OptionsUI : MonoBehaviour
         Hide();
     }
 
+    private void Update()
+    {
+        UpdateVisual();
+    }
+
     private void CookCrazyGameManager_OnGameUnpaused(object sender, System.EventArgs e)
     {
         Hide();
@@ -115,8 +112,9 @@ public class OptionsUI : MonoBehaviour
 
     private void UpdateVisual()
     {
-        soundEffectsText.text = "Sound Effects : " + Mathf.Round(SoundManager.Instance.GetVolume() * 10f);
-        musicText.text = "Music : " + Mathf.Round(MusicManager.Instance.GetVolume() * 10f);
+
+        soundEffectsText.text = "Sound Effects : " + Mathf.RoundToInt(SoundManager.Instance.GetVolume() * 10f);
+        musicText.text = "Music : " + Mathf.RoundToInt(MusicManager.Instance.GetVolume() * 10f);
 
         moveUpText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Up);
         moveDownText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Move_Down);
