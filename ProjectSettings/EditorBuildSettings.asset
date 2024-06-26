@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
+    path: Assets/Scenes/CookCrazy/MainMenuScene.unity
     guid: e954f2e113640d34a94ede7b000a742f
   - enabled: 1
-    path: Assets/Scenes/CookCrazyScene.unity
+    path: Assets/Scenes/CookCrazy/CookCrazyScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
+    path: Assets/Scenes/CookCrazy/LoadingScene.unity
     guid: 85f94ccbf73a5ff4fa10e5b8e314c364
   m_configObjects: {}
